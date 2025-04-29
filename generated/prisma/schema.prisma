@@ -148,12 +148,18 @@ model Service {
   subscriptions  Subscription[]
 }
 
+enum Frequency {
+  monthly
+  quarterly
+  yearly
+}
+
 model Subscription {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  frequency       String
+  frequency       Frequency
   nextBillingDate DateTime
   status          String
 

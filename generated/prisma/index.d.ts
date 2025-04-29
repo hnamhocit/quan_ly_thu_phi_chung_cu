@@ -89,6 +89,15 @@ export const Role: {
 
 export type Role = (typeof Role)[keyof typeof Role]
 
+
+export const Frequency: {
+  monthly: 'monthly',
+  quarterly: 'quarterly',
+  yearly: 'yearly'
+};
+
+export type Frequency = (typeof Frequency)[keyof typeof Frequency]
+
 }
 
 export type PaymentStatus = $Enums.PaymentStatus
@@ -98,6 +107,10 @@ export const PaymentStatus: typeof $Enums.PaymentStatus
 export type Role = $Enums.Role
 
 export const Role: typeof $Enums.Role
+
+export type Frequency = $Enums.Frequency
+
+export const Frequency: typeof $Enums.Frequency
 
 /**
  * ##  Prisma Client ʲˢ
@@ -11861,7 +11874,7 @@ export namespace Prisma {
     id: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    frequency: string | null
+    frequency: $Enums.Frequency | null
     nextBillingDate: Date | null
     status: string | null
     serviceId: string | null
@@ -11872,7 +11885,7 @@ export namespace Prisma {
     id: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    frequency: string | null
+    frequency: $Enums.Frequency | null
     nextBillingDate: Date | null
     status: string | null
     serviceId: string | null
@@ -12002,7 +12015,7 @@ export namespace Prisma {
     id: string
     createdAt: Date
     updatedAt: Date
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date
     status: string
     serviceId: string
@@ -12068,7 +12081,7 @@ export namespace Prisma {
       id: string
       createdAt: Date
       updatedAt: Date
-      frequency: string
+      frequency: $Enums.Frequency
       nextBillingDate: Date
       status: string
       serviceId: string
@@ -12447,7 +12460,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Subscription", 'String'>
     readonly createdAt: FieldRef<"Subscription", 'DateTime'>
     readonly updatedAt: FieldRef<"Subscription", 'DateTime'>
-    readonly frequency: FieldRef<"Subscription", 'String'>
+    readonly frequency: FieldRef<"Subscription", 'Frequency'>
     readonly nextBillingDate: FieldRef<"Subscription", 'DateTime'>
     readonly status: FieldRef<"Subscription", 'String'>
     readonly serviceId: FieldRef<"Subscription", 'String'>
@@ -13072,7 +13085,6 @@ export namespace Prisma {
 
   export const SubscriptionOrderByRelevanceFieldEnum: {
     id: 'id',
-    frequency: 'frequency',
     status: 'status',
     serviceId: 'serviceId',
     apartmentId: 'apartmentId'
@@ -13132,6 +13144,13 @@ export namespace Prisma {
    * Reference to a field of type 'Role'
    */
   export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
+    
+
+
+  /**
+   * Reference to a field of type 'Frequency'
+   */
+  export type EnumFrequencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Frequency'>
     
   /**
    * Deep Input Types
@@ -13806,7 +13825,7 @@ export namespace Prisma {
     id?: StringFilter<"Subscription"> | string
     createdAt?: DateTimeFilter<"Subscription"> | Date | string
     updatedAt?: DateTimeFilter<"Subscription"> | Date | string
-    frequency?: StringFilter<"Subscription"> | string
+    frequency?: EnumFrequencyFilter<"Subscription"> | $Enums.Frequency
     nextBillingDate?: DateTimeFilter<"Subscription"> | Date | string
     status?: StringFilter<"Subscription"> | string
     serviceId?: StringFilter<"Subscription"> | string
@@ -13836,7 +13855,7 @@ export namespace Prisma {
     NOT?: SubscriptionWhereInput | SubscriptionWhereInput[]
     createdAt?: DateTimeFilter<"Subscription"> | Date | string
     updatedAt?: DateTimeFilter<"Subscription"> | Date | string
-    frequency?: StringFilter<"Subscription"> | string
+    frequency?: EnumFrequencyFilter<"Subscription"> | $Enums.Frequency
     nextBillingDate?: DateTimeFilter<"Subscription"> | Date | string
     status?: StringFilter<"Subscription"> | string
     serviceId?: StringFilter<"Subscription"> | string
@@ -13866,7 +13885,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Subscription"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Subscription"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Subscription"> | Date | string
-    frequency?: StringWithAggregatesFilter<"Subscription"> | string
+    frequency?: EnumFrequencyWithAggregatesFilter<"Subscription"> | $Enums.Frequency
     nextBillingDate?: DateTimeWithAggregatesFilter<"Subscription"> | Date | string
     status?: StringWithAggregatesFilter<"Subscription"> | string
     serviceId?: StringWithAggregatesFilter<"Subscription"> | string
@@ -14565,7 +14584,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     service: ServiceCreateNestedOneWithoutSubscriptionsInput
@@ -14576,7 +14595,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     serviceId: string
@@ -14587,7 +14606,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     service?: ServiceUpdateOneRequiredWithoutSubscriptionsNestedInput
@@ -14598,7 +14617,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
@@ -14609,7 +14628,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     serviceId: string
@@ -14620,7 +14639,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
   }
@@ -14629,7 +14648,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
@@ -15338,6 +15357,13 @@ export namespace Prisma {
     unitPrice?: SortOrder
   }
 
+  export type EnumFrequencyFilter<$PrismaModel = never> = {
+    equals?: $Enums.Frequency | EnumFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Frequency[]
+    notIn?: $Enums.Frequency[]
+    not?: NestedEnumFrequencyFilter<$PrismaModel> | $Enums.Frequency
+  }
+
   export type SubscriptionOrderByRelevanceInput = {
     fields: SubscriptionOrderByRelevanceFieldEnum | SubscriptionOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -15375,6 +15401,16 @@ export namespace Prisma {
     status?: SortOrder
     serviceId?: SortOrder
     apartmentId?: SortOrder
+  }
+
+  export type EnumFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Frequency | EnumFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Frequency[]
+    notIn?: $Enums.Frequency[]
+    not?: NestedEnumFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.Frequency
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFrequencyFilter<$PrismaModel>
+    _max?: NestedEnumFrequencyFilter<$PrismaModel>
   }
 
   export type BuildingCreateNestedOneWithoutApartmentsInput = {
@@ -15975,6 +16011,10 @@ export namespace Prisma {
     connect?: ApartmentWhereUniqueInput
   }
 
+  export type EnumFrequencyFieldUpdateOperationsInput = {
+    set?: $Enums.Frequency
+  }
+
   export type ServiceUpdateOneRequiredWithoutSubscriptionsNestedInput = {
     create?: XOR<ServiceCreateWithoutSubscriptionsInput, ServiceUncheckedCreateWithoutSubscriptionsInput>
     connectOrCreate?: ServiceCreateOrConnectWithoutSubscriptionsInput
@@ -16208,6 +16248,23 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
+  export type NestedEnumFrequencyFilter<$PrismaModel = never> = {
+    equals?: $Enums.Frequency | EnumFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Frequency[]
+    notIn?: $Enums.Frequency[]
+    not?: NestedEnumFrequencyFilter<$PrismaModel> | $Enums.Frequency
+  }
+
+  export type NestedEnumFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Frequency | EnumFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Frequency[]
+    notIn?: $Enums.Frequency[]
+    not?: NestedEnumFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.Frequency
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFrequencyFilter<$PrismaModel>
+    _max?: NestedEnumFrequencyFilter<$PrismaModel>
+  }
+
   export type BuildingCreateWithoutApartmentsInput = {
     id?: string
     createdAt?: Date | string
@@ -16300,7 +16357,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     service: ServiceCreateNestedOneWithoutSubscriptionsInput
@@ -16310,7 +16367,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     serviceId: string
@@ -16446,7 +16503,7 @@ export namespace Prisma {
     id?: StringFilter<"Subscription"> | string
     createdAt?: DateTimeFilter<"Subscription"> | Date | string
     updatedAt?: DateTimeFilter<"Subscription"> | Date | string
-    frequency?: StringFilter<"Subscription"> | string
+    frequency?: EnumFrequencyFilter<"Subscription"> | $Enums.Frequency
     nextBillingDate?: DateTimeFilter<"Subscription"> | Date | string
     status?: StringFilter<"Subscription"> | string
     serviceId?: StringFilter<"Subscription"> | string
@@ -17173,7 +17230,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     apartment: ApartmentCreateNestedOneWithoutSubscriptionsInput
@@ -17183,7 +17240,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     apartmentId: string
@@ -17360,7 +17417,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     serviceId: string
@@ -17401,7 +17458,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     service?: ServiceUpdateOneRequiredWithoutSubscriptionsNestedInput
@@ -17411,7 +17468,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
@@ -17421,7 +17478,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     serviceId?: StringFieldUpdateOperationsInput | string
@@ -17653,7 +17710,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    frequency: string
+    frequency: $Enums.Frequency
     nextBillingDate: Date | string
     status: string
     apartmentId: string
@@ -17690,7 +17747,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     apartment?: ApartmentUpdateOneRequiredWithoutSubscriptionsNestedInput
@@ -17700,7 +17757,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     apartmentId?: StringFieldUpdateOperationsInput | string
@@ -17710,7 +17767,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    frequency?: StringFieldUpdateOperationsInput | string
+    frequency?: EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
     nextBillingDate?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: StringFieldUpdateOperationsInput | string
     apartmentId?: StringFieldUpdateOperationsInput | string

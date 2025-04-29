@@ -293,7 +293,6 @@ exports.Prisma.ServiceOrderByRelevanceFieldEnum = {
 
 exports.Prisma.SubscriptionOrderByRelevanceFieldEnum = {
   id: 'id',
-  frequency: 'frequency',
   status: 'status',
   serviceId: 'serviceId',
   apartmentId: 'apartmentId'
@@ -307,6 +306,12 @@ exports.PaymentStatus = exports.$Enums.PaymentStatus = {
 exports.Role = exports.$Enums.Role = {
   resident: 'resident',
   admin: 'admin'
+};
+
+exports.Frequency = exports.$Enums.Frequency = {
+  monthly: 'monthly',
+  quarterly: 'quarterly',
+  yearly: 'yearly'
 };
 
 exports.Prisma.ModelName = {

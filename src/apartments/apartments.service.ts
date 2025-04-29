@@ -16,6 +16,10 @@ export class ApartmentsService {
           ...data,
           residentId,
         },
+        select: {
+          building: true,
+          resident: true,
+        },
       });
 
       return {
@@ -72,6 +76,7 @@ export class ApartmentsService {
       const updatedApartment = await this.prisma.apartment.update({
         where: { id },
         data,
+        select: { resident: true },
       });
 
       return {
