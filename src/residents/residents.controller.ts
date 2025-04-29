@@ -27,6 +27,7 @@ export class ResidentsController {
   }
 
   @Get('/me/profile')
+  @UseGuards(AccessTokenGuard)
   async getMyProfile(@Req() req: Request) {
     return this.residentsService.getResident(req.user!['sub']);
   }
