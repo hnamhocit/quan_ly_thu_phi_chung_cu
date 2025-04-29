@@ -145,13 +145,6 @@ exports.Prisma.ContractScalarFieldEnum = {
   residentId: 'residentId'
 };
 
-exports.Prisma.InvalidateTokenScalarFieldEnum = {
-  id: 'id',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  expiryDate: 'expiryDate'
-};
-
 exports.Prisma.InvoiceDetailScalarFieldEnum = {
   id: 'id',
   createdAt: 'createdAt',
@@ -245,10 +238,6 @@ exports.Prisma.ContractOrderByRelevanceFieldEnum = {
   residentId: 'residentId'
 };
 
-exports.Prisma.InvalidateTokenOrderByRelevanceFieldEnum = {
-  id: 'id'
-};
-
 exports.Prisma.InvoiceDetailOrderByRelevanceFieldEnum = {
   id: 'id',
   serviceId: 'serviceId',
@@ -318,7 +307,6 @@ exports.Prisma.ModelName = {
   Apartment: 'Apartment',
   Building: 'Building',
   Contract: 'Contract',
-  InvalidateToken: 'InvalidateToken',
   InvoiceDetail: 'InvoiceDetail',
   Invoice: 'Invoice',
   Notification: 'Notification',

@@ -4,87 +4,36 @@ import { Injectable } from '@nestjs/common';
 
 import { CreateBuildingDTO } from './dtos/create-building.dto';
 import { UpdateBuildingDTO } from './dtos/update-building.dto';
+import { handleService } from 'src/common/utils/handleService';
 
 @Injectable()
 export class BuildingsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getBuildings() {
-    try {
-      const buildings = await this.prisma.building.findMany();
-      return {
-        code: 1,
-        msg: 'Success',
-        data: buildings,
-      };
-    } catch (error) {
-      return {
-        code: 0,
-        msg: 'Get buildings failed: ' + JSON.stringify(error),
-      };
-    }
+  getBuildings() {
+    return handleService(() => this.prisma.building.findMany());
   }
 
-  async getBuilding(id: string) {
-    try {
-      const building = await this.prisma.building.findUnique({ where: { id } });
-      return {
-        code: 1,
-        msg: 'Success',
-        data: building,
-      };
-    } catch (error) {
-      return {
-        code: 0,
-        msg: 'Get building failed: ' + JSON.stringify(error),
-      };
-    }
+  getBuilding(id: string) {
+    return handleService(() =>
+      this.prisma.building.findUnique({ where: { id } }),
+    );
   }
 
-  async createBuilding(data: CreateBuildingDTO) {
-    try {
-      const newBuilding = await this.prisma.building.create({ data });
-      return { code: 1, msg: 'Success', data: newBuilding };
-    } catch (error) {
-      return {
-        code: 0,
-        msg: 'Create building failed: ' + JSON.stringify(error),
-      };
-    }
+  createBuilding(data: CreateBuildingDTO) {
+    return handleService(() => this.prisma.building.create({ data }));
   }
 
-  async deleteBuilding(id: string) {
-    try {
-      await this.prisma.building.delete({ where: { id } });
-      return {
-        code: 1,
-        msg: 'Success',
-      };
-    } catch (error) {
-      return {
-        code: 0,
-        msg: 'Delete building failed: ' + JSON.stringify(error),
-      };
-    }
+  deleteBuilding(id: string) {
+    return handleService(() => this.prisma.building.delete({ where: { id } }));
   }
 
-  async updateBuilding(id: string, data: UpdateBuildingDTO) {
-    try {
-      const updatedBuilding = await this.prisma.building.update({
+  updateBuilding(id: string, data: UpdateBuildingDTO) {
+    return handleService(() =>
+      this.prisma.building.update({
         where: { id },
         data,
-      });
-
-      return {
-        code: 1,
-        msg: 'Success',
-        data: updatedBuilding,
-      };
-    } catch (error) {
-      return {
-        code: 0,
-        msg: 'Update building failed: ' + JSON.stringify(error),
-      };
-    }
+      }),
+    );
   }
 }

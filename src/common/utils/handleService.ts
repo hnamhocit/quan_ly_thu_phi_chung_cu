@@ -11,9 +11,10 @@ export async function handleService<T>(
       data,
     };
   } catch (error) {
+    console.log({ error });
     return {
       code: 0,
-      msg: (errorMessage || 'Operation failed: ') + JSON.stringify(error),
+      msg: (errorMessage || 'Operation failed: ') + error.message,
     };
   }
 }

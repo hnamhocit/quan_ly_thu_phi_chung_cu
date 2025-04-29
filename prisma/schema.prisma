@@ -48,14 +48,6 @@ model Contract {
     resident   Resident @relation(fields: [residentId], references: [id])
 }
 
-model InvalidateToken {
-    id        String   @id @default(uuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    expiryDate DateTime
-}
-
 model InvoiceDetail {
     id        String   @id @default(uuid())
     createdAt DateTime @default(now())

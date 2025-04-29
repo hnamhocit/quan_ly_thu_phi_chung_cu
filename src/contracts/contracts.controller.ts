@@ -21,33 +21,33 @@ export class ContractsController {
   constructor(private readonly contractsService: ContractsService) {}
 
   @Get()
-  async getContracts() {
-    return await this.contractsService.getContracts();
+  getContracts() {
+    return this.contractsService.getContracts();
   }
 
   @Get(':id')
-  async getContract(id: string) {
-    return await this.contractsService.getContract(id);
+  getContract(id: string) {
+    return this.contractsService.getContract(id);
   }
 
   @Post()
   @Roles('admin')
   @UseGuards(AccessTokenGuard, RolesGuard)
-  async createContract(data: CreateContractDto, @Req() req: Request) {
-    return await this.contractsService.createContract(data, req.user!['sub']);
+  createContract(data: CreateContractDto, @Req() req: Request) {
+    return this.contractsService.createContract(data, req.user!['sub']);
   }
 
   @Put(':id')
   @Roles('admin')
   @UseGuards(AccessTokenGuard, RolesGuard)
-  async updateContract(@Param('id') id: string, data: UpdateContractDTO) {
-    return await this.contractsService.updateContract(id, data);
+  updateContract(@Param('id') id: string, data: UpdateContractDTO) {
+    return this.contractsService.updateContract(id, data);
   }
 
   @Delete(':id')
   @Roles('admin')
   @UseGuards(AccessTokenGuard, RolesGuard)
-  async deleteContract(@Param('id') id: string) {
-    return await this.contractsService.deleteContract(id);
+  deleteContract(@Param('id') id: string) {
+    return this.contractsService.deleteContract(id);
   }
 }
