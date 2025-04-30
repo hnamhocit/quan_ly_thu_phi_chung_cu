@@ -29,6 +29,7 @@
         "@types/jest": "^29.5.14",
         "@types/node": "^22.15.3",
         "@types/passport": "^1.0.17",
+        "@types/passport-jwt": "^4.0.1",
         "@types/supertest": "^6.0.2",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.14.1",
@@ -468,6 +469,10 @@
     "@types/node": ["@types/node@22.15.3", "", { "dependencies": { "undici-types": "~6.21.0" } }, "sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw=="],
 
     "@types/passport": ["@types/passport@1.0.17", "", { "dependencies": { "@types/express": "*" } }, "sha512-aciLyx+wDwT2t2/kJGJR2AEeBz0nJU4WuRX04Wu9Dqc5lSUtwu0WERPHYsLhF9PtseiAMPBGNUOtFjxZ56prsg=="],
+
+    "@types/passport-jwt": ["@types/passport-jwt@4.0.1", "", { "dependencies": { "@types/jsonwebtoken": "*", "@types/passport-strategy": "*" } }, "sha512-Y0Ykz6nWP4jpxgEUYq8NoVZeCQPo1ZndJLfapI249g1jHChvRfZRO/LS3tqu26YgAS/laI1qx98sYGz0IalRXQ=="],
+
+    "@types/passport-strategy": ["@types/passport-strategy@0.2.38", "", { "dependencies": { "@types/express": "*", "@types/passport": "*" } }, "sha512-GC6eMqqojOooq993Tmnmp7AUTbbQSgilyvpCYQjT+H6JfG/g6RGc7nXEniZlp0zyKJ0WUdOiZWLBZft9Yug1uA=="],
 
     "@types/qs": ["@types/qs@6.9.18", "", {}, "sha512-kK7dgTYDyGqS+e2Q4aK9X3D7q234CIZ1Bv0q/7Z5IwRDoADNU81xXJK/YVyLbLTZCoIwUoDoffFeF+p/eIklAA=="],
 
